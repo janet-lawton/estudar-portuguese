@@ -1,0 +1,16 @@
+.env
+.env.*
+!.env.example
+node_modules
+dist
+*.d.ts
+*.d.ts.map
+*.js.map
+src/**/*.js
+.DS_Store
+*.pem
+*.key
+*.p12
+*.db
+*.sqlite
+backup/

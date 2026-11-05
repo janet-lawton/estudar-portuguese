@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS cards (
+  id SERIAL PRIMARY KEY,
+  portuguese TEXT NOT NULL,
+  english TEXT NOT NULL,
+  category TEXT DEFAULT 'general'
+);
+
+CREATE TABLE IF NOT EXISTS scores (
+  id SERIAL PRIMARY KEY,
+  card_id INTEGER REFERENCES cards(id) ON DELETE CASCADE,
+  correct BOOLEAN NOT NULL,
+  reviewed_at TIMESTAMP DEFAULT NOW()
+);

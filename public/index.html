@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estudar Português</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<!-- FUTURE PHASE: add class "future-phase" to <body> to reveal the extra sidebar items (decks, account). -->
+<!-- Pronunciation audio is live (Web Speech API) and is not gated by future-phase. -->
+<body>
+
+<div class="app">
+  <div class="backdrop" id="backdrop"></div>
+
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+    <div class="brand">Estudar Português</div>
+
+    <div class="navgroup-label">Study</div>
+    <a href="#" class="navitem active" data-view="dashboard">Dashboard</a>
+    <a href="#" class="navitem" data-view="study">Study Cards</a>
+
+    <!-- Future phase (hidden until body.future-phase) -->
+    <div class="future-only">
+      <div class="navgroup-label">Flashcards</div>
+      <a href="#" class="navitem -soft">Your Decks</a>
+      <a href="#" class="navitem -soft">Add Decks</a>
+      <a href="#" class="navitem -soft">Custom Decks</a>
+      <div class="navgroup-label">Account</div>
+      <a href="#" class="navitem -soft">Logout</a>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <h1>English &rarr; Portuguese</h1>
+      <p>Let's go&hellip;</p>
+    </div>
+
+    <!-- Dashboard view -->
+    <div class="content view active" id="view-dashboard">
+      <h2>Welcome back</h2>
+      <p>Pick up where you left off, or jump straight into a round of cards.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="num" id="statWords">&mdash;</div><div class="label">words in the deck</div></div>
+        <div class="stat"><div class="num" id="statCategories">&mdash;</div><div class="label">categories</div></div>
+      </div>
+      <a href="#" class="cta" data-view="study">Start studying</a>
+
+      <!-- Future phase -->
+      <div class="future-only decks">
+        <h3>Your decks</h3>
+        <div class="deck-row">
+          <div><strong>English &ndash; Portuguese</strong><div class="label">1,000 cards</div></div>
+          <span class="soon">Coming soon: multiple decks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Study view -->
+    <div class="content -narrow view" id="view-study">
+      <div class="card-wrap">
+        <div class="card">
+          <span class="card-tab card-tab-left" id="tabLeft"></span>
+          <span class="card-tab card-tab-right" id="tabRight">&nbsp;</span>
+          <div class="card-body" id="cardBody">
+            <div class="word">Loading&hellip;</div>
+          </div>
+          <div class="card-actions" id="actionsQuestion">
+            <button class="show-answer" id="btnShow">Show answer</button>
+          </div>
+          <div class="card-actions -hidden" id="actionsAnswer">
+            <button class="wrong" id="btnWrong">Wrong</button>
+            <button class="correct" id="btnCorrect">Correct</button>
+          </div>
+        </div>
+        <p class="session-tally" id="sessionTally"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
